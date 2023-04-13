@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+    <title>Sample Home Page </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div style="margin:100px;">
+          <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+              <a class="navbar-brand" href="/">Full Cycle Challenges</a>
+              <ul class="nav navbar-nav">
+                <li class="active">
+                  <a href="/">Home</a>
+                </li>
+                <li>
+                  <a href="/about">About</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <div style="margin:100px;">
+        <div class="jumbotron"  style="padding:40px;">
+          <h1>Full Cycle Rocks!</h1>
+          <p>A seguir a lista de nomes recuperada do <span class="bg-info">MySQL</span> 
+            a partir de uma aplicação <span class="bg-success">Node JS</span>
+            e tudo rodando em <span class="text-danger">Docker Container</span>
+          </p>
+        </div>
+        <div>
+          <h2>People List</h2>
+          <ul id="people-list"></ul>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <script>
+        const url = 'http://localhost:3000/api/people'
+        const ul = document.getElementById('people-list')
+    
+        fetch(url)
+          .then(response => response.json())
+          .then((data) => {
+            let list = document.createDocumentFragment()
+            let people = data
+    
+            people.forEach((person) => {
+              let li = document.createElement('li')
+              let name = document.createElement('h3')
+              let role = document.createElement('span')
+              let email = document.createElement('span')
+    
+              name.innerHTML = `${person.name}`
+              role.innerHTML = `${person.role} - `
+              email.innerHTML = `${person.email}`
+    
+              li.appendChild(name)
+              li.appendChild(role)
+              li.appendChild(email)
+              list.appendChild(li)
+            })
+            return list
+          })
+          .then((list) => {
+            ul.appendChild(list)
+          })
+          .catch(function(error){
+            console.log(error)
+          })
+      </script>
+    </footer>
+  </body>
+</html>

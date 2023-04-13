@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <title>About Us Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div style="margin:100px;">
+      <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">Full Cycle Challenges</a>
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li class="active">
+          <a href="/about">Sobre...</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+      <div class="jumbotron"  style="padding:40px;">
+        <h1>Sobre o desafio</h1>
+        <strong>
+            <p>
+                Nesse desafio coloquei em prática o que aprendemos em relação a utilização do nginx como proxy reverso. 
+                A idéia principal é que quando um usuário acesse o nginx, ele fará uma chamada em nossa aplicação app.js. 
+            </p>
+            <p>
+                Essa aplicação por sua vez adicionará um registro em nosso banco de dados MySQL, cadastrando um nome na tabela `people` e 
+                o retorno para o nginx deverá ser:
+            </p>
+            <p>
+                "Full Cycle Rocks!"
+            </p>            
+            <ul>
+                <li>Lista de nomes cadastrada no banco de dados.</li>
+            </ul>
+            <p>               
+            </p>
+            <p>
+                Foi gerado um docker-compose de maneira que basta rodar: docker-compose up -d que tudo deverá estar funcionando e disponível na porta: 8080.
+            </p>
+            <p>
+                E está disponível tudo em um repositório no GitHub.
+            </p>
+            <p>
+                A linguagem de programação para este desafio é Node/JavaScript.
+            </p>
+        </strong>
+      </div>
+    </div>
+  </body>
+</html>
